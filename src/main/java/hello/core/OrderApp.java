@@ -4,16 +4,15 @@ import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.order.Order;
 import hello.core.order.OrderService;
-import hello.core.order.OrderServiceImpl;
 import hello.core.service.MemberService;
-import hello.core.service.MemberServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        // main 메서드에서 주문 테스트
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
